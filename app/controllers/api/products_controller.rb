@@ -1,11 +1,11 @@
 class Api::ProductsController < ApplicationController
-  def all
+  def index
     @products = Product.all
-    render "all_products.json.jb"
+    render "index.json.jb"
   end
 
-  def first
-    @product = Product.first
-    render "first_product.json.jb"
+  def show
+    @product = Product.find_by(id: params[:id])
+    render "show.json.jb"
   end
 end
