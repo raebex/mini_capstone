@@ -3,5 +3,11 @@
   name: @product.name,
   price: @product.price,
   image_url: @product.image_url,
-  description: @product.description
+  description: @product.description,
+  is_discounted: @product.is_discounted?,
+  tax: @product.tax,
+  total_price: @product.total,
+  formatted: {
+    total_price: @product.pretty_total
+  }
 }
