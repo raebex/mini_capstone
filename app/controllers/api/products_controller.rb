@@ -12,13 +12,16 @@ class Api::ProductsController < ApplicationController
   def create
     @product = Product.new(
       name: params[:name],
-      price: params[:id],
+      price: params[:price],
       image_url: params[:image_url],
       description: params[:description]
     )
-    @product.save
 
-    render "show.json.jb"
+    if @product.save
+      render "show.json.jb"
+    else
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def update
@@ -26,11 +29,14 @@ class Api::ProductsController < ApplicationController
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
     @product.image_url = params[:image_url] || @product.image_url
+    @product.inventory = params[:inventory] || @product.inventory
     @product.description = params[:description] || @product.description
 
-    @product.save
-
-    render "show.json.jb"
+    if @product.save
+      render "show.json.jb"
+    else
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
+    end
   end
 
   def destroy
