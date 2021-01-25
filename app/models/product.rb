@@ -1,10 +1,10 @@
 class Product < ApplicationRecord
   belongs_to :supplier
+  has_many :images
 
   validates :name, presence: true, uniqueness: true
   validates :price, numericality: { greater_than: 0 }
   validates :description, length: { in: 10..500 }
-  validates_format_of :image_url, :with => %r{\.(gif|jpe?g|png)$}i, :message => "Not a valid image url", multiline: true
 
   def is_discounted?
     price < 10
