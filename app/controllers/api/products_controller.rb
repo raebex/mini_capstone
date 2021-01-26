@@ -53,11 +53,15 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    product = Product.find_by(id: params[:id])
-    product.destroy
-    
-    render json: {
-      message: "Successfully deleted!"
-    }
+    if current_user
+      product = Product.find_by(id: params[:id])
+      product.destroy
+      
+      render json: {
+        message: "Successfully deleted!"
+      }
+    else
+      render json: { message: "You don't have permission to do that"}, status: :unauthorized
+    end
   end
 end

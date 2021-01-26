@@ -35,9 +35,13 @@ class Api::SuppliersController < ApplicationController
   end
 
   def delete
-    supplier = Supplier.find(params[:id])
-    supplier.destroy
+    if current_user
+      supplier = Supplier.find(params[:id])
+      supplier.destroy
 
-    render json: { message: "Supplier deleted!"}
+      render json: { message: "Supplier deleted!"}
+    else
+      render json: { message: "You don't have permission to do that"}, status: :unauthorized
+    end
   end
 end
