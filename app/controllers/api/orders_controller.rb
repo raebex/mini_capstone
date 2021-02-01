@@ -33,4 +33,13 @@ class Api::OrdersController < ApplicationController
       render json: { errors: @order.errors.full_messages }, status: :bad_request
     end
   end
+
+  def destroy
+    order = Order.find(params[:id])
+    order.destroy
+    
+    render json: {
+      message: "Successfully deleted!"
+    }
+  end
 end

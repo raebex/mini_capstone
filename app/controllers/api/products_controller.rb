@@ -16,6 +16,11 @@ class Api::ProductsController < ApplicationController
       @products = @products.where("name iLIKE ? OR description iLIKE ?", "%#{params[:search]}%", "%#{params[:search]}%")
     end
 
+    if params[:category]
+      category = Category.find_by("name = ?", params[:category])
+      @products = category.products
+    end
+
     render "index.json.jb"
   end
 
@@ -28,8 +33,9 @@ class Api::ProductsController < ApplicationController
     @product = Product.new(
       name: params[:name],
       price: params[:price],
-      image_url: params[:image_url],
-      description: params[:description]
+      description: params[:description],
+      inventory: params[:inventory],
+      supplier_id: params[:supplier_id]
     )
 
     if @product.save
@@ -43,9 +49,9 @@ class Api::ProductsController < ApplicationController
     @product = Product.find_by(id: params[:id])
     @product.name = params[:name] || @product.name
     @product.price = params[:price] || @product.price
-    @product.images = params[:image_url] || @product.images
-    @product.inventory = params[:inventory] || @product.inventory
     @product.description = params[:description] || @product.description
+    @product.inventory = params[:inventory] || @product.inventory
+    @product.supplier_id = params[:supplier_id] || @product.supplier_id
 
     if @product.save
       render "show.json.jb"
@@ -55,15 +61,11 @@ class Api::ProductsController < ApplicationController
   end
 
   def destroy
-    if current_user
-      product = Product.find_by(id: params[:id])
-      product.destroy
-      
-      render json: {
-        message: "Successfully deleted!"
-      }
-    else
-      render json: { message: "You don't have permission to do that"}, status: :unauthorized
-    end
+    product = Product.find_by(id: params[:id])
+    product.destroy
+    
+    render json: {
+      message: "Successfully deleted!"
+    }
   end
 end

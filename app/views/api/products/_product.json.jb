@@ -11,5 +11,5 @@
   },
   supplier_name: product.supplier.name,
   images: product.images,
-  current_user: current_user
+  categories: product.categories
 }
