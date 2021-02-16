@@ -1,9 +1,9 @@
 User.create!([
-  {name: "brett", email: "brett@gmail.com", password_digest: "$2a$12$5Cp0Q0Uh6TS0kIu6YywHLelgIrlSaEo6Fn8QngXsVsBAa1zzty3nS", admin: false},
-  {name: "rebecca", email: "rebecca2@gmail.com", password_digest: "$2a$12$SJe1M0kT3AIUzWTJ1qjBD.JoQx8GvKSCinBCOGsVtV8X00WBnbXIW", admin: false},
-  {name: "veronika", email: "v@gmail.com", password_digest: "$2a$12$Nkse5sz7Lnj.L2G4A50exuInvscMIiBNSxAHQyoggE8NH6QZ6FHNm", admin: false},
-  {name: "rebecca", email: "rebecca@gmail.com", password_digest: "$2a$12$oYtz1/EVmbGqG85xoXO1PupTDB00fxtkXO/BnSI3Xxt6pg17d5qBu", admin: true},
-  {name: "goose", email: "goose@gmail.com", password_digest: "$2a$12$1.vE5Lv6f.yPE/t0OqohlucuVtDtH8QPNa/HarirJ.D6lRC8Bn9ua", admin: false}
+  {name: "brett", email: "brett@gmail.com", password: "password", admin: false},
+  {name: "rebecca", email: "rebecca2@gmail.com", password: "password", admin: false},
+  {name: "veronika", email: "v@gmail.com", password: "password", admin: false},
+  {name: "rebecca", email: "rebecca@gmail.com", password: "password", admin: true},
+  {name: "goose", email: "goose@gmail.com", password: "password", admin: false}
 ])
 Supplier.create!([
   {name: "Polyvinyl", email: "polyvinylrecord@gmail.com", phone_number: "123-4567"},
