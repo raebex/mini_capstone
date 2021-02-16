@@ -2,27 +2,15 @@ User.create!([
   {name: "brett", email: "brett@gmail.com", password_digest: "$2a$12$5Cp0Q0Uh6TS0kIu6YywHLelgIrlSaEo6Fn8QngXsVsBAa1zzty3nS", admin: false},
   {name: "rebecca", email: "rebecca2@gmail.com", password_digest: "$2a$12$SJe1M0kT3AIUzWTJ1qjBD.JoQx8GvKSCinBCOGsVtV8X00WBnbXIW", admin: false},
   {name: "veronika", email: "v@gmail.com", password_digest: "$2a$12$Nkse5sz7Lnj.L2G4A50exuInvscMIiBNSxAHQyoggE8NH6QZ6FHNm", admin: false},
-  {name: "rebecca", email: "rebecca@gmail.com", password_digest: "$2a$12$oYtz1/EVmbGqG85xoXO1PupTDB00fxtkXO/BnSI3Xxt6pg17d5qBu", admin: true}
+  {name: "rebecca", email: "rebecca@gmail.com", password_digest: "$2a$12$oYtz1/EVmbGqG85xoXO1PupTDB00fxtkXO/BnSI3Xxt6pg17d5qBu", admin: true},
+  {name: "goose", email: "goose@gmail.com", password_digest: "$2a$12$1.vE5Lv6f.yPE/t0OqohlucuVtDtH8QPNa/HarirJ.D6lRC8Bn9ua", admin: false}
 ])
-
-Category.create!([
-  {name: "screamo"},
-  {name: "dark wave"},
-  {name: "metal"},
-  {name: "singer/songwriter"},
-  {name: "post rock"},
-  {name: "electronic"},
-  {name: "math rock"},
-  {name: "hardcore"}
-])
-
 Supplier.create!([
   {name: "Polyvinyl", email: "polyvinylrecord@gmail.com", phone_number: "123-4567"},
   {name: "Top Shelf Records", email: "topshelf@gmail.com", phone_number: "987-4567"},
   {name: "Zegema Beach", email: "zbr@gmail.com", phone_number: "098-1234"},
   {name: "Kranky", email: "krankyrecords@gmail.com", phone_number: "098-1234"}
 ])
-
 Product.create!([
   {name: "We Were Skeletons – Blame & Aging", price: "17.0", description: "Vinyl, LP, Red/Orange w/ Black Splatter (out of 200)", inventory: 1, supplier_id: 3},
   {name: "Oathbreaker - Eros|Anteros", price: "8.0", description: " Vinyl, LP, Album, Clear Milky", inventory: 1, supplier_id: 3},
@@ -41,9 +29,9 @@ Product.create!([
   {name: "Kidcrash - Snacks", price: "17.0", description: "Vinyl, LP, Album", inventory: 1, supplier_id: 2},
   {name: "Envy - Definition Of Impossibility", price: "19.0", description: "Vinyl, 10inch, 45 RPM, EP, Stereo, Black-In-Ultraclear", inventory: 1, supplier_id: 5},
   {name: "Pageninetynine - Document #5", price: "23.99", description: "Vinyl, LP, Album, Repress, Red / Black Haze", inventory: 1, supplier_id: 3},
-  {name: "Fever Ray", price: "60.23", description: "Vinyl, LP, Album", inventory: 1, supplier_id: 1}
+  {name: "Fever Ray", price: "60.23", description: "Vinyl, LP, Album", inventory: 1, supplier_id: 1},
+  {name: "FKA Twigs - LP1", price: "12.2", description: " Vinyl, LP, Album", inventory: 1, supplier_id: 2}
 ])
-
 Image.create!([
   {url: "https://f4.bcbits.com/img/a3811002832_10.jpg", product_id: 2},
   {url: "https://f4.bcbits.com/img/a1075700310_10.jpg", product_id: 3},
@@ -66,30 +54,61 @@ Image.create!([
   {url: "https://f4.bcbits.com/img/a2190281402_10.jpg", product_id: 22},
   {url: "https://upload.wikimedia.org/wikipedia/en/f/fd/Fever_Ray_-_Fever_Ray_cover.png", product_id: 23}
 ])
-
-Order.create!([
-  {quantity: 1, product_id: 3, user_id: 1, subtotal: nil, tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 1, subtotal: nil, tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 1, subtotal: nil, tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 1, subtotal: nil, tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 2, subtotal: nil, tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 2, subtotal: "17.0", tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 2, subtotal: "17.0", tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 2, subtotal: "17.0", tax: nil, total: nil},
-  {quantity: 1, product_id: 3, user_id: 2, subtotal: "17.0", tax: "1.53", total: "18.53"},
-  {quantity: 1, product_id: 1, user_id: 2, subtotal: "19.0", tax: "1.71", total: "20.71"},
-  {quantity: 1, product_id: 1, user_id: 2, subtotal: "19.0", tax: "1.71", total: "20.71"},
-  {quantity: 1, product_id: 4, user_id: 2, subtotal: "20.0", tax: "1.8", total: "21.8"},
-  {quantity: 1, product_id: 4, user_id: 2, subtotal: "20.0", tax: "1.8", total: "21.8"},
-  {quantity: 5, product_id: 4, user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
-  {quantity: 5, product_id: 4, user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
-  {quantity: 2, product_id: 3, user_id: 2, subtotal: "34.0", tax: "3.06", total: "37.06"},
-  {quantity: 1, product_id: 16, user_id: 2, subtotal: "10.0", tax: "0.9", total: "10.9"},
-  {quantity: 5, product_id: 4, user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
-  {quantity: 5, product_id: 4, user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
-  {quantity: 5, product_id: 4, user_id: 1, subtotal: "100.0", tax: "9.0", total: "109.0"}
+Category.create!([
+  {name: "screamo"},
+  {name: "dark wave"},
+  {name: "metal"},
+  {name: "singer/songwriter"},
+  {name: "post rock"},
+  {name: "electronic"},
+  {name: "math rock"},
+  {name: "hardcore"}
 ])
-
+CartedProduct.create!([
+  {user_id: 1, product_id: 2, quantity: 1, status: "removed", order_id: nil},
+  {user_id: 1, product_id: 1, quantity: 2, status: "purchased", order_id: 23},
+  {user_id: 1, product_id: 3, quantity: 5, status: "purchased", order_id: 23},
+  {user_id: 1, product_id: 10, quantity: 5, status: "removed", order_id: nil},
+  {user_id: 1, product_id: 3, quantity: 2, status: "purchased", order_id: 24},
+  {user_id: 1, product_id: 3, quantity: 2, status: "purchased", order_id: 24},
+  {user_id: 1, product_id: 3, quantity: 3, status: "purchased", order_id: 24},
+  {user_id: 1, product_id: 6, quantity: 1, status: "purchased", order_id: 25},
+  {user_id: 1, product_id: 6, quantity: 4, status: "purchased", order_id: 26},
+  {user_id: 1, product_id: 9, quantity: 1, status: "purchased", order_id: 26},
+  {user_id: 1, product_id: 11, quantity: 1, status: "purchased", order_id: 26},
+  {user_id: 1, product_id: 12, quantity: 2, status: "purchased", order_id: 27},
+  {user_id: 1, product_id: 14, quantity: 2, status: "purchased", order_id: 29},
+  {user_id: 1, product_id: 10, quantity: 5, status: "purchased", order_id: 31},
+  {user_id: 1, product_id: 10, quantity: 5, status: "purchased", order_id: 31},
+  {user_id: 1, product_id: 1, quantity: 1, status: "purchased", order_id: 32},
+  {user_id: 1, product_id: 20, quantity: 1, status: "purchased", order_id: 32}
+])
+Order.create!([
+  {user_id: 2, subtotal: "17.0", tax: "1.53", total: "18.53"},
+  {user_id: 2, subtotal: "19.0", tax: "1.71", total: "20.71"},
+  {user_id: 2, subtotal: "19.0", tax: "1.71", total: "20.71"},
+  {user_id: 2, subtotal: "20.0", tax: "1.8", total: "21.8"},
+  {user_id: 2, subtotal: "20.0", tax: "1.8", total: "21.8"},
+  {user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
+  {user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
+  {user_id: 2, subtotal: "34.0", tax: "3.06", total: "37.06"},
+  {user_id: 2, subtotal: "10.0", tax: "0.9", total: "10.9"},
+  {user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
+  {user_id: 2, subtotal: "100.0", tax: "9.0", total: "109.0"},
+  {user_id: 1, subtotal: "100.0", tax: "9.0", total: "109.0"},
+  {user_id: 1, subtotal: "123.0", tax: "11.07", total: "134.07"},
+  {user_id: 1, subtotal: "123.0", tax: "11.07", total: "134.07"},
+  {user_id: 1, subtotal: "123.0", tax: "11.07", total: "134.07"},
+  {user_id: 1, subtotal: "119.0", tax: "10.71", total: "129.71"},
+  {user_id: 1, subtotal: "16.0", tax: "1.44", total: "17.44"},
+  {user_id: 1, subtotal: "161.0", tax: "14.49", total: "175.49"},
+  {user_id: 1, subtotal: "168.0", tax: "15.12", total: "183.12"},
+  {user_id: 1, subtotal: "0.0", tax: "0.0", total: "0.0"},
+  {user_id: 1, subtotal: "40.0", tax: "3.6", total: "43.6"},
+  {user_id: 1, subtotal: "0.0", tax: "0.0", total: "0.0"},
+  {user_id: 1, subtotal: "170.0", tax: "15.3", total: "185.3"},
+  {user_id: 1, subtotal: "40.0", tax: "3.6", total: "43.6"}
+])
 ProductCategory.create!([
   {product_id: 1, category_id: 1},
   {product_id: 2, category_id: 5},
