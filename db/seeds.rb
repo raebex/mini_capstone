@@ -51,7 +51,9 @@ Image.create!([
   {url: "https://cdn.shopify.com/s/files/1/2244/7843/products/HOLY_FAWN-Death_Spells-LP_600x.jpg", product_id: 5},
   {url: "https://s9.limitedrun.com/images/1379779/both.png", product_id: 5},
   {url: "https://f4.bcbits.com/img/a2190281402_10.jpg", product_id: 17},
-  {url: "https://upload.wikimedia.org/wikipedia/en/f/fd/Fever_Ray_-_Fever_Ray_cover.png", product_id: 18}
+  {url: "https://upload.wikimedia.org/wikipedia/en/f/fd/Fever_Ray_-_Fever_Ray_cover.png", product_id: 18},
+  {url: "https://images-na.ssl-images-amazon.com/images/I/71AAHY5B-VL._SL1200_.jpg", product_id: 19},
+  {url: "https://www.angrymetalguy.com/wp-content/uploads/2019/02/saorforgotten.jpg", product_id: 6}
 ])
 Category.create!([
   {name: "screamo"},
